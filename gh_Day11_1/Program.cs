@@ -4,13 +4,13 @@
        다음의 아래의 과정을 수행하여 그래프를 구현하시오.
 
        제공되는 URL 페이지를 통해서 그래프를 확인하고 스크린샷으로 저장하시오.
-       기본학습 내용을 참고하여 그래프를 구현하고, 스크린샷 상황의 그래프를 구현한 코드에 추가하시오.
-     */
+       기본학습 내용을 참고하여 그래프를 구현하고, 스크린샷 상황의 그래프를 구현한 코드에 추가하시오.   */
 
 
     public class Program
     {
-        public abstract class Graph
+        public abstract class Graph // 그래프 강의에서 작성해주신
+                                    // 그래프를 간편하게 사용하기 위한 클래스
         {
             public int VertexCount { get; protected set; }
 
@@ -29,22 +29,22 @@
         {
             private bool[,] graph;
 
-            public MatrixGraph(int vertex) : base(vertex)
+            public MatrixGraph(int vertex) : base(vertex) // 연결 추가&삭제 여부를 true/false로 판단ㄴ하기 위한 생성자
             {
                 graph = new bool[vertex, vertex];
             }
 
-            public override void Connect(int from, int to)
+            public override void Connect(int from, int to)  // 연결 추가
             {
                 graph[from, to] = true;
             }
 
-            public override void DisConnect(int from, int to)
+            public override void DisConnect(int from, int to)  // 연결 끊음
             {
                 graph[from, to] = false;
             }
 
-            public override bool IsConnect(int from, int to)
+            public override bool IsConnect(int from, int to)  // 연결 확인
             {
                 return graph[from, to];
             }
@@ -116,13 +116,13 @@
 
             for (int from = 0; from < 8; from++)
             {
-                Console.WriteLine($"{from} 정점 : ");
+                Console.WriteLine($"{from}노드 : ");
 
                 for (int to = 0; to < 8; to++)
                 {
                     if (graph.IsConnect(from, to))
                     {
-                        Console.WriteLine($" {to} 정점");
+                        Console.WriteLine($"   {to}노드");
                     }
                 }
                 Console.WriteLine();
