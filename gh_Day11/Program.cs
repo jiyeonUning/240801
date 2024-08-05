@@ -29,12 +29,13 @@
         public MonsterData(Monster monster)
         {
             // 프로그램 시작시, MonsterData는 몬스터 이름 기준의 string Key 값으로 딕셔너리에 저장 (5종류 이상)
-            Dictionary<string, Monster> monsterETC = new Dictionary<string, Monster>();
-            monsterETC.Add("파이리", new Monster("파이리", MonsterType.Fire, 80));
-            monsterETC.Add("울머기", new Monster("울머기", MonsterType.Water, 120));
-            monsterETC.Add("데덴네", new Monster("데덴네", MonsterType.Electric, 30));
-            monsterETC.Add("이브이", new Monster("이브이", MonsterType.Nomal, 50));
-            monsterETC.Add("님피아", new Monster("님피아", MonsterType.Fairy, 200));
+            //  Dictionary<string, Monster> monsterETC = new Dictionary<string, Monster>();  <- 피드백 전 작성한 코드
+            static Dictionary<string, Monster> monsterETC = new Dictionary<string, Monster>(); // <- 피드백 반영.                                                                         
+            monsterETC.Add("파이리", new Monster("파이리", MonsterType.Fire, 80));     
+            monsterETC.Add("울머기", new Monster("울머기", MonsterType.Water, 120));   
+            monsterETC.Add("데덴네", new Monster("데덴네", MonsterType.Electric, 30)); //  피드백 받은 내용 :
+            monsterETC.Add("이브이", new Monster("이브이", MonsterType.Nomal, 50));    //  몬스터 사전같은 경우, 게임의 시작부터 끝까지 유지되는 데이터로서 볼 수 있습니다.
+            monsterETC.Add("님피아", new Monster("님피아", MonsterType.Fairy, 200));   //  즉, 몬스터 딕셔너리를 Static으로 두고 사용한다면 게임의 어디에서든 몬스터의 정보들을 열람하고 활용할 수 있습니다.
         }
     }
 
